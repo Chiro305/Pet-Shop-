@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 75vh;
+            background-image: url(https://squawkspetstore.com.au/cdn/shop/files/website.jpg?v=1658892736&width=1500);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .It {
+            font-size: 15px;
+            text-align: center;
+            border: 2px solid black;
+            border-color: black;
+            background:transparent;
+            padding: 30px 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .It h1 {
+            font-family: arial;
+            text-align: center;
+        }
+
+        .It .inputbox {
+            width: 100%;
+            height: 50px;
+            margin: 0px;
+        }
+
+        .inputbox input {
+            width: 80%;
+            height: 65%;
+            background: transparent;
+            border: none;
+            border: 1px solid black;
+            outline: none;
+            border-radius: 35px;
+            padding-left: 30px;
+        }
+
+        .inputbox input::placeholder {
+            color: black;
+        }
+
+        .It .forgot{
+            display: flex;
+            font-size: 13px;
+            justify-content: space-between;
+        }
+        .It .button{
+            width: 95%;
+            height: 30px;
+            border-radius: 45px;
+        }
+        .It .button:hover{
+            background-color:rgb(147, 216, 43);
+        }
+        .It .register {
+            width: 100%;
+            font-size: 16px;
+        }
+        .it .register p {
+            font-size: 15px;
+            color: aliceblue;
+        }
+        .It .register a{
+            color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="It" id="loginform">
+        <form action="">
+            <h1>Login</h1>
+            <div class="inputbox">
+                <input type="text" id="loginuname" placeholder="Username" required>
+            </div>
+            <div class="inputbox">
+                <input type="password" id="loginpassword" placeholder="password" required>
+            </div>
+            <div class="forgot">
+                <label><input type="checkbox"> Remember me
+                &nbsp;&nbsp;&nbsp;
+                <a href="register.html"> Forgot Password ?</a></label>
+            </div>
+           
+            <div class="register">
+                <button type="submit" class="button">Login</button>
+                <p>Don't have an account ? <a href="register.html">Ragister</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginform").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var entereduname = document.getElementById("loginuname").value;
+            var enteredpassword = document.getElementById("loginpassword").value;
+
+            var storeduname = localStorage.getItem("uname");
+            var storedpassword = localStorage.getItem("password");
+
+            if (entereduname === storeduname && enteredpassword === storedpassword) {
+                alert("Login Successfully")
+                window.location.href = "PETSHOPLASTPAGE.HTML"
+            }
+            else {
+                alert("login failed")
+            }
+        })
+    </script>
+</body>
+
+</html>

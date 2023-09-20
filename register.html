@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 75vh;
+            background-image: url(https://www.shaunaspetshop.ie/uploads/A2he1KFw/727x0_793x0/team.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .It {
+            font-size: 15px;
+            text-align: center;
+            border: 2px solid black;
+            border-color: black;
+            background:transparent;
+            padding: 30px 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .It h1 {
+            font-family: arial;
+            text-align: center;
+        }
+
+        .It .inputbox {
+            width: 100%;
+            height: 50px;
+            margin: 0px;
+        }
+
+        .inputbox input {
+            width: 80%;
+            height: 65%;
+            background: transparent;
+            border: none;
+            border: 1px solid black;
+            outline: none;
+            border-radius: 35px;
+            padding-left: 30px;
+        }
+
+        .inputbox input::placeholder {
+            color: gray;
+        }
+
+        .It .forgot{
+            display: flex;
+            font-size: 13px;
+            justify-content: space-between;
+        }
+        .It .button{
+            width: 95%;
+            height: 30px;
+            border-radius: 45px;
+        }
+        .It .button:hover{
+            background-color:rgb(147, 216, 43);
+        }
+        .It .register {
+            width: 100%;
+            font-size: 16px;
+        }
+        .it .register p {
+            font-size: 15px;
+            color: aliceblue;
+        }
+        .It .register a{
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="It" id="registerform">
+        <form action="">
+            <h1>Registration</h1>
+            <div class="inputbox">
+                <input type="text" id="uname" placeholder="Username" required>
+            </div>
+            <div class="inputbox">
+                <input type="emailid" id="emailid" placeholder="Email Id" required>
+            </div>
+           
+            <div class="inputbox">
+                <input type="password" id="password"  placeholder="password" required>
+            </div>
+           
+            <div class="register">
+                <button type="submit" class="button">Register</button>
+                <p>already have an account ? <a href="loginpage.html">Login</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registerform").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var uname = document.getElementById("uname").value;
+            var password = document.getElementById("password").value;
+            localStorage.setItem("uname", uname);
+            localStorage.setItem("password", password);
+            window.location.href = "loginpage.html"
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronto Pet Shop</title>
+    <style>
+        body,
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .products {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-card h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .product-card button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-card button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Pet Shop</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="mainpage.html">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="mailto:chiragandhari12@gmail.com">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="products">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Pet Shop</p>
+    </footer>
+    <script>
+        const petData = [
+            { name: "Dog", price: 200, image: "dog.jpg" },
+            { name: "Cat", price: 150, image: "cat.jpg" },
+            { name: "Fish", price: 20, image: "fish.jpg" },
+        ];
+        function generateProductCards() {
+            const productsSection = document.querySelector('.products');
+            productsSection.innerHTML = '';
+
+            petData.forEach((pet, index) => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+
+                productCard.innerHTML = `
+                    <img src="${pet.image}" alt="${pet.name}">
+                    <h2>${pet.name}</h2>
+                    <p>Price: $${pet.price}</p>
+                    <button onclick="addToCart(${index})">Add to Cart</button>
+                `;
+
+                productsSection.appendChild(productCard);
+            });
+        }
+
+        function addToCart(index) {
+        }
+        generateProductCards();
+    </script>
+</body>
+
+</html>
